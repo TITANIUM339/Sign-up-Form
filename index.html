@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Sign-up Form</title>
+</head>
+<body>
+    <div class="image-container">
+        <div class="ribbon-container">
+            <div class="ribbon">
+                <img src="./images/odin-lined.png" alt="odin-logo">
+                <div>ODIN</div>
+            </div>
+        </div>
+        <div class="credit">Photo by <a href="https://unsplash.com/@vishnumaiea">Vishnu Mohanan</a> on <a href="https://unsplash.com">Unsplash</a></div>
+    </div>
+    <div class="form-container">
+        <div class="text">
+            <div>
+                This is not a real online service!<br> 
+                You know you need something like this in your life to help you realize your deepest dreams.<br>
+                Sign up <em>now</em> to get started.
+            </div>
+            <div>You <em>know</em> you want to.</div>
+        </div>
+        <div class="form">
+            <form id="form" method="get" action="#">
+                <h2>Let's do this!</h2>
+
+                <div class="inputs">
+                    <div>
+                        <label for="first-name">FIRST NAME</label>
+                        <input type="text" id="first-name" name="firstName" required autocomplete="given-name">
+                    </div>
+    
+                    <div>
+                        <label for="last-name">LAST NAME</label>
+                        <input type="text" id="last-name" name="lastName" required autocomplete="family-name">
+                    </div>
+    
+                    <div>
+                        <label for="email">EMAIL</label>
+                        <input type="email" id="email" name="email" required autocomplete="email">
+                    </div>
+                    
+                    <div>
+                        <label for="phone">PHONE NUMBER</label>
+                        <input type="number" id="phone" name="phone" autocomplete="tel">
+                    </div>
+                    
+                    <div>
+                        <label for="password">PASSWORD</label>
+                        <input type="password" id="password" name="password" required autocomplete="new-password">
+                    </div>
+                    
+                    <div>
+                        <label for="confirm-password">CONFIRM PASSWORD</label>
+                        <input type="password" id="confirm-password" name="confirmPassword" required autocomplete="new-password">
+                    </div>
+                </div>
+                <div class="error"></div>
+            </form>
+            <div class="button-container">
+                <button type="submit" form="form">Create Account</button>
+                <div>Already have an account? <a href="#">Log in</a></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function passwordCheck(event) {
+            if (document.querySelector("#password").value !== event.target.value + event.key) {
+                document.querySelector(".error").innerText = "* Passwords do not match";
+
+                document.querySelector("#password").setCustomValidity("invalid field");
+                document.querySelector("#confirm-password").setCustomValidity("invalid field");
+
+                document.querySelector("#confirm-password").classList.add("red-border");
+                document.querySelector("#password").classList.add("red-border");
+            }
+            else {
+                document.querySelector(".error").innerText = "";
+
+                document.querySelector("#password").setCustomValidity("");
+                document.querySelector("#confirm-password").setCustomValidity("");
+
+                document.querySelector("#confirm-password").classList.remove("red-border");
+                document.querySelector("#password").classList.remove("red-border");
+            }
+        }
+
+        document.querySelector("#confirm-password").addEventListener("keypress", (event) => passwordCheck(event));
+
+        document.querySelector("#password").addEventListener("keypress", (event) => passwordCheck(event));
+    </script>
+</body>
+</html>
