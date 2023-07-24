@@ -1,6 +1,6 @@
 # Sign-up-Form
 
-This is project Etch-a-Sketch from TOP.
+This is project Sign-up-Form from TOP.
 
 A Sign-up-Form built using HTML, and CSS.
 
